@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col-md-12 home">
+      <mdb-navbar SideClass="navbar navbar-expand-lg navbar-expand-xl navbar-dark transparent" [containerInside]="false">
+          <logo><a class="navbar-brand waves-light" routerLink="/home" mdbWavesEffect>Site</a></logo>
+
+          <links>
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item" *ngIf="isLogged" >
+                      <a class="nav-link waves-light" mdbWavesEffect routerLink="/user">Minhas Salas <span class="sr-only">(current)</span></a>
+                  </li>
+              </ul>
+
+              <button type="button" class="btn btn-outline-default btn-rounded" mdbWavesEffect (click)="onLoginLogout()">{{ btnNavBar }}</button>
+          </links>
+
+      </mdb-navbar>
+
+      <div class="row">
+        <div class="col-md-6 subtitle">
+          <h2>Assista vídeos com os amigos</h2>
+          <h3>Em tempo real</h3>
+        </div>
+      </div>
+
+      <div class="row sala">
+        <div class="col-md-2 sala">
+          <button class="btn btn-danger waves-light form-control btn-sala" mdbWavesEffect routerLink="/room/create">CRIAR UMA SALA</button>
+        </div>
+        <div class="col-md-2 sala">
+          <button class="btn btn-danger waves-light form-control btn-sala" mdbWavesEffect routerLink="/room/join">ENTRAR EM UMA SALA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

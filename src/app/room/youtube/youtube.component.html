@@ -1,0 +1,14 @@
+<!--div class="row">
+  <div class="col-md-3">
+    <button *ngIf="changedVideoId" class="btn btn-indigo waves-light btn-red form-control" mdbWavesEffect (click)="changeVideo()">MUDAR VÍDEO</button>
+  </div>
+</div -->
+
+<youtube-player 
+  [height]="720"
+  [width]="1080"
+  [videoId]="getVideoId()"
+  (ready)="savePlayer($event)"
+  (change)="onStateChange($event)"
+></youtube-player>
+

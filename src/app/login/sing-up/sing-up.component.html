@@ -1,0 +1,52 @@
+<div class="body">
+    <div class="container">
+        <!-- Subscription form -->
+        <div class="row justify-content-md-center">
+            <div class="col-md-7 sing-up-container">
+                <form [formGroup]="form">
+                    <p class="h5 text-center mb-4">Sign up</p>
+                
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input mdbActive type="text" id="name" formControlName="name" class="form-control">
+                        <label for="name">Nome</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <input mdbActive type="text" id="email" formControlName="email" class="form-control">
+                        <label for="email">E-mail</label>
+                    </div>
+                
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input mdbActive type="password" id="pass" formControlName="pass" class="form-control">
+                        <label for="pass">Senha</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input mdbActive type="password" id="repPass" formControlName="repPass" class="form-control">
+                        <label for="repPass">Repetir senha</label>
+                    </div>
+                
+                    <div class="text-left error" *ngIf="hasError" >
+                        <span >{{ error }}</span>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-indigo waves-light btn-singup form-control" mdbWavesEffect
+                            (click)="onSubmit()">CADASTRAR
+                            <i class="fa fa-paper-plane-o ml-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="text-center container-link-login">
+                        <a class="link-login" routerLink="/login">Já tem uma conta? Faça login aqui</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Subscription form -->
+    </div>
+</div>

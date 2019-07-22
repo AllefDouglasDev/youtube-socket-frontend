@@ -1,0 +1,28 @@
+
+<app-nav-bar [navLabel]="'Site'" [btnLabel]="btnNavBar" [colorNav]="'black'" (onClick)="onLogout()"></app-nav-bar>
+
+<div class="back-black"></div>
+<div class="back-grey"></div>
+
+<div class="body">
+    <div class="container">
+        <div class="row search-bar">
+            <div class="col-md-12 ">
+
+            </div>
+        </div>
+
+        <div class="row box-table justify-content-md-center">
+          <div class="col-md-12">
+            <app-user-table-room></app-user-table-room>
+          </div>
+          
+          <div class="col-md-12">
+            <!--app-user-edit-room *ngIf="edit" [roomId] = roomId></app-user-edit-room-->
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+
+        <div class="row"> <div class="col-md-2"></div> </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<p-dialog [(visible)]="display" [draggable]="false" modal="true" [width]="500" [closable]="false">
+    <p-header>
+        SALA PRIVADA
+    </p-header>
+    
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon">#</span>
+        <input type="password" class="form-control link-room" placeholder="SENHA" pInputText [(ngModel)]="roomPass" >      
+    </div>
+
+    <div class="text-left error" *ngIf="hasError" >
+        <span >{{ error }}</span>
+    </div>
+
+    <p-footer>
+        <button class="btn btn-indigo waves-light btn-go-room form-control" mdbWavesEffect (click)="verifyPass()">IR PARA SALA
+        </button>
+    </p-footer>
+</p-dialog>
+
+
+<div *ngIf="authorizated">
+    <app-nav-bar [navLabel]="'Site'" [btnLabel]="btnNavBar" [colorNav]="'black'" (onClick)="onLoginLogout()" [container]="false"></app-nav-bar>
+    
+    <div class="back-black"></div>
+    <div class="back-grey"></div>
+
+    <div class="body">
+        <div class="container">
+            <div class="row search-bar">
+                <div class="col-md-2 room-name">
+                    <span>{{ roomName }}</span>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-indigo waves-light btn-red form-control" routerLink="/room/join" mdbWavesEffect>DEIXAR SALA</button>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-9 offset-md-3 search-input">
+                            <input type="text" class="form-control" pInputText placeholder="Busque ou Informe a URL do vídeo" (click)="search.toggle($event)" (keyup)="searchVideos()" [(ngModel)]="sVideos"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row yt-player justify-content-md-center">
+                <app-youtube [videoId]="videoId" [changedVideoId]="videoLabel"></app-youtube>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-overlayPanel #search>
+    <p-scrollPanel [style]="sizeScroll">
+        <div *ngFor="let yt of ytVideosResult" >
+            <div class="row" *ngIf="yt.id.kind == 'youtube#video'" >
+                <div class="col-md-4">
+                    <img src="{{ yt.snippet.thumbnails.default.url }}" alt="">
+                </div>
+                <div class="col-md-8">
+                    <a (click)="changeVideo(yt.id.videoId, yt.snippet.title)">{{ yt.snippet.title }}</a>
+                </div>
+            </div>
+        </div>
+    </p-scrollPanel>
+</p-overlayPanel>

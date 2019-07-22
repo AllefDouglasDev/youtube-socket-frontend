@@ -1,0 +1,46 @@
+.body {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+.create-container {
+    background-color: #fff;
+    padding: 50px 50px 50px 50px;
+}
+.btn-create-room {
+    margin-top: 20px;
+    font-size: 17pt;
+    background-color: #E10813 !important;
+}
+.btn-go-room {
+    font-size: 17pt;
+    background-color: #E10813 !important;
+}
+.btn-level {
+    background-color: #E10813 !important;
+}
+.container-link-login {
+    font-size: 14pt;
+}
+.error {
+    margin-top: 20px;
+    font-size: 15pt;
+    color: #E10813;
+}
+.title-create {
+    padding-top: 100px;
+    color: #fff;
+    font-size: 40pt;
+}
+h2 {
+    font-weight: bold;
+}
+h3 {
+    padding-bottom: 30px;
+}
+.label-level {
+    font-size: 16pt;
+}
+.link-room {
+    font-size: 14pt;
+}

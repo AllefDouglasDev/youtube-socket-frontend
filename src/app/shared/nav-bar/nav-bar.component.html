@@ -1,0 +1,16 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-expand-xl navbar-dark {{ colorNav }}" [containerInside]="container">
+           
+    <!-- Navbar brand -->
+    <logo><a class="navbar-brand" routerLink="/home">{{ navLabel }}</a></logo>
+
+    <links>
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto"></ul>
+        <!-- Links -->
+
+        <button type="button" class="btn btn-outline-default btn-rounded" mdbWavesEffect (click)="onClickEvent($event)">{{ btnLabel }}</button>
+    </links>
+
+</mdb-navbar>
+<!--/.Navbar-->

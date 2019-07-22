@@ -1,0 +1,43 @@
+<!--Table-->
+<table class="table" *ngIf="rooms.length > 0">
+    <!--Table head-->
+    <thead class="mdb-color black">
+        <tr class="text-white">
+            <th>SALA</th>
+            <th>LINK</th>
+            <th>LEVEL</th>
+            <th>SENHA</th>
+            <th class="text-center">EDITAR</th>
+            <th class="text-center">DELETAR</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody>
+        <tr *ngFor="let room of rooms; let i = index" class="tr-room">
+            <th scope="row" class="table-td"> {{ room.name }} </th>
+            <td class="table-td"> <a class="td-link" [routerLink]="['/room', room.link]"> {{ room.link }} </a></td>
+            <td class="table-td"> {{ room.level }} </td>
+            <td class="table-td"> {{ room.password }} </td>
+            <td class="ic-delete text-center"> <a (click)="editRoom(room._id, i)" ><i class="fa fa-edit"></i></a> </td>
+            <td class="ic-delete text-center"> <a (click)="deleteRoom(room._id, i)"><i class="fa fa-trash"></i></a> </td>
+        </tr>
+    </tbody>
+    <!--Table body-->
+</table>
+<!--Table-->
+
+<div *ngIf="rooms.length === 0" class="box-no-room">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <i class="fa fa-tv prefix grey-text ic-no-room"></i>
+        </div>
+        <div class="col-md-12">
+            <span class="sp-no-room">Você não tem nenhuma sala criada</span>
+        </div>
+        <div class="col-md-12">
+            <a class="link-no-room" routerLink="/room/create">Clique aqui para criar uma agora</a>
+        </div>
+    </div>
+</div>

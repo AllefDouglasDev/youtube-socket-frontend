@@ -1,0 +1,43 @@
+.body {
+    top: 100px;
+    position: absolute;
+    width: 100%;
+}
+.back-black {
+    width: 100%;
+    height: 300px;
+    background-color: black;
+}
+.back-grey {
+    width: 100%;
+    height: 100vh;
+    background-color: #DFE6E9;
+}
+.btn-go-room {
+    font-size: 17pt;
+    background-color: #E10813 !important;
+}
+.btn-red {
+    font-size: 13pt;
+    background-color: #E10813 !important;
+}
+.error {
+    margin-top: 20px;
+    font-size: 15pt;
+    color: #E10813;
+}
+.search-bar {
+    background-color: #DFE6E9;   
+    margin-bottom: 50px;
+}
+.yt-player {
+    background-color: black;
+}
+.room-name {
+    padding-top: 10px;
+    font-size: 20pt;
+    color: rgb(148, 156, 160);
+}
+.search-input {
+    padding-top: 15px;
+}

@@ -1,0 +1,46 @@
+<app-nav-bar [navLabel]="'Site'" [btnLabel]="btnNavBar" [colorNav]="'red'" (onClick)="onLoginLogout()"></app-nav-bar>
+
+<div class="body">
+
+    <div class="container ">
+        <!-- Subscription form -->
+        <div class="row text-center title-join">
+            <div class="col-md-6 offset-md-3">
+                <h2>Junte-se aos amigos</h2>
+                <h3>e divirta-se</h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-7 join-container">
+                <form [formGroup]="form">
+                    <p class="h5 text-center mb-4">ENTRAR EM UMA SALA</p>
+                
+                    <div class="md-form" *ngIf="!isLogged" >
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input mdbActive type="text" id="userName" formControlName="userName" class="form-control">
+                        <label for="userName">Seu nome</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-tv prefix grey-text"></i>
+                        <input mdbActive type="text" id="roomLink" formControlName="roomLink" class="form-control">
+                        <label for="roomLink">Link da sala</label>
+                    </div>
+                
+                    <div class="text-left error" *ngIf="hasError" >
+                        <span >{{ error }}</span>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-indigo waves-light btn-join-room form-control" mdbWavesEffect
+                            (click)="onSubmit()">ENTRAR
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Subscription form -->
+    </div>
+
+</div>

@@ -1,0 +1,45 @@
+<div class="col-md-6 box-edit">
+    <form [formGroup]="form">
+        <p class="h5 text-center mb-4">EDITAR</p>
+    
+        <div class="md-form">
+            <i class="fa fa-tv prefix grey-text"></i>
+            <input mdbActive type="text" id="roomName" formControlName="roomName" class="form-control" placeholder="Nome da sala">
+        </div>
+
+        <div class="md-form">
+            <i class="fa fa-link prefix grey-text"></i>
+            <input mdbActive type="text" id="roomLink" formControlName="roomLink" class="form-control" readonly>
+        </div>
+
+        <div class="md-form" *ngIf="levelRoom" >
+            <i class="fa fa-lock prefix grey-text"></i>
+            <input mdbActive type="password" id="roomPass" formControlName="roomPass" class="form-control" placeholder="Senha">
+        </div>
+
+        <div class="md-form">
+            <div class="row">
+                <div class="col-md-1 offset-md-1 ">
+                    <label for="level" class="label-level">Level: </label>
+                </div>
+                <div class="col-md-8">
+                    <button id="level" class="btn btn-indigo waves-light btn-level" mdbWavesEffect
+                    (click)="changeLevelRoom()">
+                        <span *ngIf="levelRoom">PRIVADO</span>
+                        <span *ngIf="!levelRoom">PÚBLICO</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-left error" *ngIf="hasError" >
+            <span >{{ error }}</span>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-indigo waves-light btn-save form-control" mdbWavesEffect
+                (click)="onSubmit()">SALVAR
+            </button>
+        </div>
+    </form>
+</div>

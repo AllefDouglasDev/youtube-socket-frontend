@@ -1,0 +1,54 @@
+<div class="body">
+  <div class="container">
+      <!-- Subscription form -->
+      <div class="row justify-content-md-center">
+          <div class="col-md-7 sing-up-container">
+              <form [formGroup]="form">
+                  <p class="h5 text-center mb-4">Entrar</p>
+
+                  <div class="md-form">
+                      <i class="fa fa-envelope prefix grey-text"></i>
+                      <input mdbActive type="text" id="email" formControlName="email" class="form-control">
+                      <label for="email">E-mail</label>
+                  </div>
+              
+                  <div class="md-form">
+                      <i class="fa fa-lock prefix grey-text"></i>
+                      <input mdbActive type="password" id="pass" formControlName="pass" class="form-control">
+                      <label for="pass">Senha</label>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="container-link-login">
+                        <p-checkbox [(ngModel)]="ckbValue" [ngModelOptions]="{standalone: true}" binary="true" label="Lembre-se de mim"></p-checkbox>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="text-right container-link-login">
+                        <a routerLink="/login/fpassword">Esqueci minha senha</a>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="text-left error" *ngIf="hasError" >
+                      <span >{{ error }}</span>
+                  </div>
+
+                  <div class="text-center">
+                      <button class="btn btn-indigo waves-light btn-singin form-control" mdbWavesEffect
+                          (click)="onSubmit()">ENTRAR
+                          <i class="fa fa-paper-plane-o ml-1"></i>
+                      </button>
+                  </div>
+
+                  <div class="text-center container-link-login">
+                      <a routerLink="/login/singup">Ainda não tem uma conta? Cadastre-se aqui</a>
+                  </div>
+              </form>
+          </div>
+      </div>
+      <!-- Subscription form -->
+  </div>
+</div>

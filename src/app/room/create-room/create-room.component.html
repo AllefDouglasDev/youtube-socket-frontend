@@ -1,0 +1,90 @@
+<app-nav-bar [navLabel]="'Site'" [btnLabel]="btnNavBar" [colorNav]="'red'" (onClick)="onLoginLogout()"></app-nav-bar>
+
+<div class="body">
+
+    <div class="container ">
+        <!-- Subscription form -->
+        <div class="row text-center title-create">
+            <div class="col-md-6 offset-md-3">
+                <h2>Basta criar uma sala</h2>
+                <h3>e convidar os amigos</h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-7 create-container">
+                <form [formGroup]="form">
+                    <p class="h5 text-center mb-4">CRIAR SALA</p>
+                
+                    <div class="md-form">
+                        <i class="fa fa-tv prefix grey-text"></i>
+                        <input mdbActive type="text" id="roomName" formControlName="roomName" class="form-control">
+                        <label for="roomName">Nome da sala</label>
+                    </div>
+
+                    <div class="md-form" *ngIf="!isLogged" >
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input mdbActive type="text" id="userName" formControlName="userName" class="form-control">
+                        <label for="userName">Nome de usuário</label>
+                    </div>
+
+                    <div class="md-form" *ngIf="levelRoom" >
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input mdbActive type="password" id="roomPass" formControlName="roomPass" class="form-control">
+                        <label for="roomPass">Senha</label>
+                    </div>
+
+                    <div class="md-form">
+                        <div class="row">
+                            <div class="col-md-1 offset-md-1 ">
+                                <label for="level" class="label-level">Level: </label>
+                            </div>
+                            <div class="col-md-8">
+                                <button id="level" class="btn btn-indigo waves-light btn-level" mdbWavesEffect
+                                [class.disabled]="!isLogged"
+                                (click)="changeLevelRoom()">
+                                    <span *ngIf="levelRoom">PRIVADO</span>
+                                    <span *ngIf="!levelRoom">PÚBLICO</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md-form container-link-login" *ngIf="!isLogged">
+                        <a class="link-login" routerLink="/login">Faça o login para criar uma sala privada</a>
+                    </div>
+                
+                    <div class="text-left error" *ngIf="hasError" >
+                        <span >{{ error }}</span>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-indigo waves-light btn-create-room form-control" mdbWavesEffect
+                            (click)="onSubmit()">CRIAR
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Subscription form -->
+    </div>
+
+</div>
+
+<p-dialog [(visible)]="display" [draggable]="false" modal="true" [width]="500" [closable]="false">
+        <p-header>
+            SALA CRIADA
+        </p-header>
+        
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">#</span>
+            <input type="text" class="form-control link-room" pInputText readonly value="{{ link }}" #linkInput>   
+            <button pButton type="button" class="ui-button-danger" label="COPIAR" (click)="copyLink()"></button>      
+        </div>
+
+        <p-footer>
+            <button class="btn btn-indigo waves-light btn-go-room form-control" mdbWavesEffect routerLink="/room/{{ link }}">IR PARA SALA
+            </button>
+        </p-footer>
+</p-dialog>
+    
